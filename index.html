@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon Ball Universe</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="estilos.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/your_own_kit_code.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="fade-in">
+
+    <!-- Loader -->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo ki-effect">DRAGON BALL</div>
+        <nav class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#personajes">Personajes</a>
+            <a href="#sagas">Sagas</a>
+            <a href="#" id="openForm">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul>
+            <li><a href="#inicio"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="#personajes"><i class="fas fa-users"></i> Personajes</a></li>
+            <li><a href="#sagas"><i class="fas fa-dragon"></i> Sagas</a></li>
+            <li><a href="#" id="openFormSide"><i class="fas fa-envelope"></i> Contacto</a></li>
+        </ul>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="content">
+           <!-- Inicio -->
+    <section id="inicio" class="section fade-section">
+        <h1>Bienvenido al Universo de Dragon Ball</h1>
+        <p>Explora los personajes, sagas y más del mundo Saiyajin.</p>
+        <p>Dragon Ball es una de las franquicias de anime y manga más icónicas del mundo, creada por Akira Toriyama. Desde su debut en 1984, ha cautivado a millones de fanáticos con sus emocionantes batallas, personajes memorables y profundas historias. A lo largo de las series, como Dragon Ball Z y Dragon Ball Super, seguimos las aventuras de Goku, un guerrero Saiyajin que lucha para proteger la Tierra y sus seres queridos de poderosos enemigos.</p>
+        <p>En este sitio, podrás sumergirte en el vasto universo de Dragon Ball, donde encontrarás información sobre los personajes, las sagas más épicas, y detalles sobre las transformaciones y técnicas que han hecho de esta serie un fenómeno cultural. ¡Prepárate para revivir las mejores batallas y descubrir más sobre tus héroes favoritos!</p>
+    </section>
+
+        <!-- Personajes -->
+        <section id="personajes" class="section fade-section">
+            <h2>Personajes Principales</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="img/goku.png" alt="Goku">
+                    <h3>SON GOKU</h3>
+                </div>
+                <div class="card">
+                    <img src="img/vegueta.png" alt="Vegeta">
+                    
+                    <h3>VEGETA</h3>
+                </div>
+                <div class="card">
+                    <img src="img/picoro.png" alt="Piccolo">
+                    <h3>PICOLO</h3>
+                </div>
+                <div class="card">
+                    <img src="img/gohan.png" alt="GOHAN">
+                    <h3>SON GOHAN</h3>
+                </div>
+            </div>
+        </section>
+
+      <!-- Sagas -->
+<section id="sagas" class="section fade-section">
+    <h2>Sagas Épicas</h2>
+    <p>Revive las mejores batallas de Dragon Ball Z, Super y más.</p>
+    <div class="image-container"> <!-- Contenedor para las imágenes -->
+        <img src="img/dragonballSAGA.png" alt="Sagas" class="saga-img hover-effect">
+        <img src="img/dragonballzSAGA.png" alt="Sagas" class="saga-img hover-effect">
+        <img src="img/dragonballgtSAGA.png" alt="Sagas" class="saga-img hover-effect">
+        <img src="img/dragonballsuperSAGA.png" alt="Sagas" class="saga-img hover-effect">
+        <img src="img/dragonballdaimaSAGA.png" alt="Sagas" class="saga-img hover-effect">
+    </div>
+</section>
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer fade-section">
+        <p>Insecto, no te olvides de seguirnos en nuestras redes:</p>
+        <div class="social-icons">
+            <a href="#"><img src="img/facebook.png" alt="Facebook" class="social-icon"></a>
+            <a href="#"><img src="img/whatsapp.png" alt="WhatsApp" class="social-icon"></a>
+            <a href="#"><img src="img/tiktok.png" alt="TikTok" class="social-icon"></a>
+            <a href="#"><img src="img/gmail.png" alt="Email" class="social-icon"></a>
+        </div>
+        <p>© CHRISTIAN HENRY DORADO JALDIN. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Modal Formulario -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeForm">&times;</span>
+            <h2>Contáctanos</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Tu nombre" required>
+                <input type="email" placeholder="Tu correo electrónico" required>
+                <textarea placeholder="Tu mensaje..." required></textarea>
+                <button type="submit"><i class="fas fa-paper-plane"></i> Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Loader
+        window.addEventListener('load', () => {
+            document.getElementById('loader').style.display = 'none';
+            document.body.classList.add('fade-in');
+        });
+
+        // Fade de secciones
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Modal de contacto
+        const openFormBtn = document.getElementById('openForm');
+        const openFormSide = document.getElementById('openFormSide');
+        const closeFormBtn = document.getElementById('closeForm');
+        const contactModal = document.getElementById('contactModal');
+
+        openFormBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            contactModal.style.display = 'flex';
+        });
+
+        openFormSide.addEventListener('click', (e) => {
+            e.preventDefault();
+            contactModal.style.display = 'flex';
+        });
+
+        closeFormBtn.addEventListener('click', () => {
+            contactModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target == contactModal) {
+                contactModal.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
